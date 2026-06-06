@@ -1,0 +1,270 @@
+/* =====================================================
+   WHAT IS CSS?
+   CSS makes your HTML look beautiful.
+   Format:  selector { property: value; }
+   Example: h1 { color: red; }
+===================================================== */
+
+/* ---- CSS VARIABLES: Store colors in one place ---- */
+:root {
+  --bg: #0d0d0d;
+  --surface: #161616;
+  --card: #1e1e1e;
+  --accent: #c8a96e;
+  --accent2: #e8c98e;
+  --text: #f0ede8;
+  --muted: #888;
+  --border: #2a2a2a;
+}
+
+/* ---- RESET: Remove default browser styling ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- SMOOTH SCROLL when clicking nav links ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- BODY: Overall page style ---- */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   NAVIGATION BAR
+===================================================== */
+.navbar {
+  position: fixed;          /* Stays at top when scrolling */
+  top: 0;
+  width: 100%;
+  background-color: rgba(13, 13, 13, 0.95);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;   /* Logo left, links right */
+  align-items: center;
+  padding: 18px 60px;
+  z-index: 1000;            /* Stays above everything */
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* Remove bullet points from nav list */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+}
+
+/* Style nav links */
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* =====================================================
+   HOME SECTION
+===================================================== */
+.home-section {
+  min-height: 100vh;        /* Full screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+  background: radial-gradient(ellipse at center, #1a1500 0%, #0d0d0d 70%);
+}
+
+.greeting {
+  color: var(--accent);
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);  /* Responsive font size */
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.role {
+  font-size: 1.2rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+/* Button style */
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: var(--accent);
+  color: #0d0d0d;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--accent2);
+  transform: translateY(-2px);  /* Slight lift effect */
+}
+
+/* =====================================================
+   ABOUT SECTION
+===================================================== */
+.about-section {
+  padding: 100px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 50px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+/* Cards for each about block */
+.about-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 24px;
+}
+
+.about-card h3 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.about-card p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Skills tags */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background-color: #2a2000;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+/* Project items */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-item {
+  background-color: var(--surface);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.project-item h4 {
+  color: var(--text);
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.project-item p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* =====================================================
+   CONTACT SECTION
+===================================================== */
+.contact-section {
+  padding: 100px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 1rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+  width: 36px;
+  text-align: center;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+.footer {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
